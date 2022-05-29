@@ -410,12 +410,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jump_speed: 5
-  speed: 3
+  speed: 5
   pos: {fileID: 193926352}
   isLayer:
     serializedVersion: 2
     m_Bits: 8
   circlesize: 0.25
+  animator: {fileID: 0}
 --- !u!50 &1833070687
 Rigidbody2D:
   serializedVersion: 4
@@ -561,10 +562,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae0436b0614e7b4da210773f15ba556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   bullet: {fileID: 4804948529507104037, guid: 95870dd54ce6f91499d73df46e86a41d, type: 3}
   pos: {fileID: 411897859}
   currentime: 0
   BulletDistance: 0.3
+  playerController: {fileID: 0}
+  stoprun: 0
+  stopjump: 0
 --- !u!1 &1986205905
 GameObject:
   m_ObjectHideFlags: 0

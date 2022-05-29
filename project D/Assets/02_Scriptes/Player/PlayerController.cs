@@ -5,16 +5,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rigidbody;
-    [SerializeField] private float jump_speed=5;
-    [SerializeField] private float speed=3;
+    public float jump_speed=5;
+    public float speed=3;
     [SerializeField] Transform pos;
     [SerializeField] LayerMask isLayer;
     [SerializeField] float circlesize;
     bool isGround;
    
-   
+   public Animator animator;
     void Start()
     {
+        animator=GetComponent<Animator>();
         rigidbody=GetComponent<Rigidbody2D>();
     }
 
@@ -25,9 +26,15 @@ public class PlayerController : MonoBehaviour
     rigidbody.velocity= new Vector2(hor*speed,rigidbody.velocity.y);
     if(hor>0){
         transform.eulerAngles= new Vector3(0,0,0);
+         animator.SetBool("run",true);  
     }
     else if(hor<0){
          transform.eulerAngles= new Vector3(0,180,0);
+         animator.SetBool("run",true);  
+    }
+    else
+    {
+        animator.SetBool("run",false);
     }
     }
     private void Update()
