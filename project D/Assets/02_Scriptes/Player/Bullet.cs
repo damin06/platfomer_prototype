@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    enemy enemy;
    public float speed=5;
    public float distance;
    Vector3 vec = Vector3.right;
@@ -19,10 +20,13 @@ public class Bullet : MonoBehaviour
         RaycastHit2D ray= Physics2D.Raycast(transform.position,transform.right,distance,islayer);
         if(ray.collider != null)
         {
-            if(ray.collider.tag =="Ground")
+            
+           // Destroybullet();
+            if(ray.collider.CompareTag("enemy"))
             {
-            Destroybullet();
+                enemy.wrkxek();
             }
+            
             
         }
         if(transform.rotation.y==0)
@@ -34,8 +38,13 @@ public class Bullet : MonoBehaviour
 transform.position+=vec*-1*speed*Time.deltaTime;
         }
     }
+   
     void Destroybullet()
     {
         Destroy(gameObject);
     }
+    // void Ond(Collider other)
+    // {
+    // Destroy(other.gameObject);
+    // }
 }

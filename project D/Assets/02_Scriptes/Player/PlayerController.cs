@@ -39,7 +39,17 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-       
+       RaycastHit2D ray= Physics2D.Raycast(transform.position,transform.right,isLayer);
+        if(ray.collider != null)
+        {
+            
+           
+            if(ray.collider.CompareTag("enemy")){
+                Destroy(gameObject);
+            }
+            
+            
+        }
         isGround=Physics2D.OverlapCircle(pos.position,circlesize,isLayer);
         
           
@@ -51,6 +61,12 @@ public class PlayerController : MonoBehaviour
     }
 
      }
-   
+    }
+    public void OntriggerEnter2D(Collider2D collision){
+        Destroy(collision.gameObject);
+    }
+    public void OntriggerEnter2D(Collision collision){
+        Destroy(collision.gameObject);
+        Destroy(gameObject);
     }
 }
